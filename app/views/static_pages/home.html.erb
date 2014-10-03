@@ -6,32 +6,31 @@
   <script>
   	var videoPlayer = OO.Player.create('ooyalaplayer', 'w5Y2l0cDroA7MFkyARCfbq3P-vwBOv96');
   	videoPlayer.mb.subscribe(OO.EVENTS.PLAYING,'test',function(eventName) {alert("Get your popcorn, the movie is starting!");})
-
-  	function playVideo(){
-  		videoPlayer.mb.publish(OO.EVENTS.PLAY);
-  		$('#playButton').attr('disabled', 'disabled');
-  		$('#pauseButton').removeAttr('disabled');
-  	}
-
-  	function pauseVideo(){
-  		videoPlayer.mb.publish(OO.EVENTS.PAUSE);
-  		$('#pauseButton').attr('disabled', 'disabled');
-  		$('#playButton').removeAttr('disabled');
-  	}
-
-  	function destroyPlayer(){
-  		videoPlayer.destroy(function() { alert("This is why you can't have nice things"); });
-  	}
-
   </script>
 
   <div class="btn-group">
   	<button class="btn btn-primary" id= "playButton" onclick="playVideo()">Play Video</button>
   	<button class="btn btn-warning" id= "pauseButton" disabled="disabled" onclick="pauseVideo()">Pause Video</button>
-  	<button class="btn btn-default" id= "seekButton" disabled="disabled">Seek</button>
-  	<button class="btn btn-default">Get Video Description</button>
-  	<button class="btn btn-default">Change Video Name</button>
+  	<button class="btn btn-default" onclick="videoDescription()">Get Video Description</button>
   	<button class="btn btn-danger" onclick="destroyPlayer()">Remove Player</button>
   </div>
-  
+
+  <div class="col-lg-6">
+	  <div class="input-group">
+		  <input type="text" class="form-control" style="padding-top: 8px" id="seekInput">
+		  <span class="input-group-btn">
+		    <button class="btn btn-default" type="button" onclick="seekTo(document.getElementById('seekInput').value)">Seek</button>
+		  </span>
+	  </div>
+  </div>
+
+  <div class="col-lg-6">
+	  <div class="input-group">
+		  <input type="text" class="form-control" style="padding-top: 8px" id="newName">
+		  <span class="input-group-btn">
+		    <button class="btn btn-default" type="button" onclick="changeName(document.getElementById('newName').value)">Change Video Name</button>
+		  </span>
+	  </div>
+  </div>
+  <h2 class="text-center" id="author"><small>Made by Alan Gandarilla</small></h2>
 </div>

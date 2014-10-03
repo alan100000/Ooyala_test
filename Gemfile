@@ -36,6 +36,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'uri-handler'
+
 group :development do
   gem 'sqlite3'
 end

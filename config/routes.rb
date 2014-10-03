@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'static_pages/home'
-
+  post 'static_pages/changeName'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
